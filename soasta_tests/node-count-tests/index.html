@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>chrome node count test #1</title>
+<script>
+
+var addNodes = function(){
+  var div = document.createElement('div');
+  div.setAttribute('class', 'made');
+  document.body.appendChild(div);
+  div = null;
+};
+
+var removeNodes = function(){
+  var divs = document.getElementsByClassName('made');
+  for(var i = 0; i < divs.length; i++) {
+    var div = divs[i];
+    div.parentNode.removeChild(div);
+    div = null;
+  }
+};
+</script>
+</head>
+<body>
+  <div class="container">
+  </div>
+</body>
+</html>

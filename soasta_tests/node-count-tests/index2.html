@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>chrome node count test #2</title>
+</head>
+<body>
+    <a href="javascript:" onclick="addRemove(this)">add</a>
+    <ul></ul>
+    <script>
+        function addRemove(a) {
+            var ul = document.getElementsByTagName('UL')[0],
+                li, i = 20000;
+            if (a.innerHTML === 'add') {
+                while (i--) {
+                    li = document.createElement('LI');
+                    ul.appendChild(li);
+                    li.innerHTML = i;
+                }
+                a.innerHTML = 'remove';
+            } else {
+                while (ul.firstChild) {
+                    ul.removeChild(ul.firstChild);
+                }
+                a.innerHTML = 'add';
+            }
+            ul = null;
+            li = null;
+            a = null;
+            i = null;
+        }
+    </script>
+    </body>
+</html>
