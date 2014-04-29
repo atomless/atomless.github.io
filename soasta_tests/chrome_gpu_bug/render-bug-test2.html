@@ -92,7 +92,7 @@
               });
               $('iframe', $tile_container).on('load', function(event) {
 
-                console.log('loaded');
+                console.log('loaded', this);
               });
               $container.append($tile_container);
             }
