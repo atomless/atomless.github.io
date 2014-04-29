@@ -76,7 +76,7 @@
           var $tile_container = $(tile_template);
           var width = window.innerWidth;
           var height = window.innerHeight;
-          var nTiles = window.location.href.slice(window.location.href.indexOf('?') + 1);
+          var nTiles = window.location.href.slice(window.location.href.indexOf('?') + 1) || 4;
           // square up the total number of tiles
           var numtilesperpage = (nTiles > 2)? Math.pow(2, Math.round( Math.log(nTiles) / Math.log(2))) : nTiles;
           var numtilerows = Math.ceil(Math.sqrt(numtilesperpage) * 0.5);
