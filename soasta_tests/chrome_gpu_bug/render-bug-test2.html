@@ -90,6 +90,10 @@
                 '-webkit-perspective-origin-x': xpos + 'px',
                 '-webkit-perspective-origin-y': ypos + 'px'
               });
+              $('iframe', $tile_container).on('load', function(event) {
+
+                console.log('loaded');
+              });
               $container.appendChild($tile_container);
             }
           }
