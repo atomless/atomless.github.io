@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IOS image src bug test</title>
+  <style>
+    body {
+      font-size: 0.7vw;
+      background: hsl(205, 50%, 14%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    #slot-container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0.5rem;
+    }
+
+    .slot {
+      float: left;
+      width: 16rem;
+      height: 9rem;
+      border: 1px solid hsl(205, 50%, 34%);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <div id="slot-container">
+    <div id="slot-template" class="slot"
+     data-gizmo="bitmap" 
+     data-contents-index="0"  
+     data-slot-index="1" 
+     data-slot-spans-panel="false" 
+     data-url=""
+     data-label="" 
+     data-has-play-controls="false"
+     data-is-in-current-arrangement="true">
+      <img class="slot-placeholder" src="./images_sys/blank.gif" alt="">
+    </div><!-- end of slot template -->
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function(event) { 
+
+      var images_array = ["bitmap_058740ce1dca381e51ba34ee9e7dc2d9.jpg",
+                          "bitmap_2270611f2c96d39f727e4b9a24f12a23.jpg",
+                          "bitmap_3c6b715636bfcdc8b74f00255b780d64.jpg",
+                          "bitmap_4fd07a1754ddcb54fd0f45b847b76fba.jpg",
+                          "bitmap_719a7043b2f48a5950d3ab975e9dd5ad.jpg",
+                          "bitmap_891931c8bf88c1c923935001578ec65a.jpg",
+                          "bitmap_9c591fd5696ef9da01ddcd31dbbcc574.jpg",
+                          "bitmap_0a6dcbd090a1842c43a1a0108f00a6a0.jpg",
+                          "bitmap_24301c06784c88f892b544fa0060a634.jpg",
+                          "bitmap_3fdef9a9e157bfa1ef16aeaf7b64803a.jpg",
+                          "bitmap_503728c4cb296824ddbf37eef24ea330.jpg",
+                          "bitmap_7846d88490cf5f8e9ec37287a3e46a1e.jpg",
+                          "bitmap_89cf57781556cf60b6894f2651552031.jpg",
+                          "bitmap_a77a8791577e28f5fac5a21cedb3145d.jpg",
+                          "bitmap_0b2d6d1003d1e691a1421ef53531f97e.jpg",
+                          "bitmap_277ce4ae6963764ce217d07a8c43c031.jpg",
+                          "bitmap_4b1e45b4be5891254cf4163ac5196249.jpg",
+                          "bitmap_5ba0718f8085c670d0a775b09d71f73f.jpg",
+                          "bitmap_796435dc8ef89f4770d96d23d5a717ab.jpg",
+                          "bitmap_9914334bceb6e31cc18d35d1b39f0efa.jpg",
+                          "bitmap_109346d087452de0a17f578349459b7b.jpg",
+                          "bitmap_32ebcc0567f76a3054c0be7e9f2a98d7.jpg",
+                          "bitmap_4cc89e85d2a1bdb43b6a9033e0d06a6b.jpg",
+                          "bitmap_6868d6f7aa8949011325b68cde7cbc7a.jpg",
+                          "bitmap_7e0f0c249bfe5d9c0ea5a8ab1f153e47.jpg",
+                          "bitmap_996bf16cbdb1b2e64518ca9d18e98185.jpg",
+                          "bitmap_1e9ff554ef1118f0aeb5161e7db29a90.jpg",
+                          "bitmap_3364ccfa62a5299d318c62effa0a00d8.jpg",
+                          "bitmap_4fbc01cb31b3fbef7097518f979624c4.jpg",
+                          "bitmap_6c54bfe76a2f5fb7a304ef3d28b67fca.jpg",
+                          "bitmap_81a45c5ff705b64fbca0d9a5203942db.jpg",
+                          "bitmap_9981e4d80bf99aced70b025fea051094.jpg"];
+
+      var $slot_container = $('#slot-container');
+      var $slot_template = $('#slot-template').removeAttr('id').remove().clone();
+
+      images_array.forEach(function(img_src, i) {
+
+        var $slot = $slot_template.clone();
+
+        $slot.attr({
+          'class': 'slot',
+          'data-slot-index' : i
+        })
+        .appendTo($slot_container)
+        .find('img').attr('src', './images/' + img_src);
+
+      });
+
+    });
+  </script>
+</body>
+</html>
